@@ -15,22 +15,22 @@ class PlayerRepository(
 ) {
     private val db: AppDatabase = AppDatabase.getDb(application)
 
-    suspend fun getPlayer(): Player = db.playerDao().getPlayer()
+    fun getPlayer(): Player = db.playerDao().getPlayer()
 
-    suspend fun createPlayer(): Player {
+    fun createPlayer(): Player {
         log("PlayerRepository.createPlayer()")
         val defaultPlayer = Player()
         updatePlayer(defaultPlayer)
         return getPlayer()
     }
 
-    suspend fun updatePlayer(player: Player) {
+    fun updatePlayer(player: Player) {
         db.playerDao().updatePlayer(player)
         sessionManager.player = player
         log("PlayerRepository.updatePlayer(): $player")
     }
 
-    suspend fun levelUp(player: Player) {
+    fun levelUp(player: Player) {
         player.lvl++
 
         player.maxExperience = (player.maxExperience * MULTIPLIER_EXPERIENCE).toInt()

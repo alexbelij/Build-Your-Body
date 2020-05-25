@@ -48,9 +48,9 @@ class WorkFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.updateAdapter.observe(this, Observer { adapter.data = it })
-        viewModel.finish.observe(this, Observer { requireActivity().onBackPressed() })
-        viewModel.showLevelUpDialog.observe(this, Observer { showDialogLevelUp(it) })
+        viewModel.updateAdapter.observe(viewLifecycleOwner, Observer { adapter.data = it })
+        viewModel.finish.observe(viewLifecycleOwner, Observer { requireActivity().onBackPressed() })
+        viewModel.showLevelUpDialog.observe(viewLifecycleOwner, Observer { showDialogLevelUp(it) })
     }
 
     private fun showDialogLevelUp(playerLvl: Int) {

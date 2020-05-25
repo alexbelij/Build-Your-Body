@@ -12,9 +12,14 @@ import com.anaumchik.buildyourbody.data.utils.SessionManager
 import com.anaumchik.buildyourbody.data.utils.background
 import com.anaumchik.buildyourbody.data.utils.loadDrawable
 import com.anaumchik.buildyourbody.data.utils.toast
-import kotlinx.android.synthetic.main.item_work.view.*
-import org.koin.standalone.KoinComponent
-import org.koin.standalone.inject
+import kotlinx.android.synthetic.main.item_work.view.imgIcon
+import kotlinx.android.synthetic.main.item_work.view.tvAdjustMoney
+import kotlinx.android.synthetic.main.item_work.view.tvCostHealth
+import kotlinx.android.synthetic.main.item_work.view.tvDescription
+import kotlinx.android.synthetic.main.item_work.view.tvMinLvl
+import kotlinx.android.synthetic.main.item_work.view.tvTitle
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 class WorkViewHolder(private val view: View) : RecyclerView.ViewHolder(view), KoinComponent {
     private val playerSession = inject<SessionManager>().value

@@ -14,7 +14,7 @@ class WorkRepository(private val application: Application) {
         val minLvls = application.resources.getIntArray(R.array.work_min_lvl)
         val experiences = application.resources.getIntArray(R.array.work_experience)
 
-        for (i in 0 until titles.size) {
+        titles.forEachIndexed { i, _ ->
             items.add(
                 Work(
                     i,

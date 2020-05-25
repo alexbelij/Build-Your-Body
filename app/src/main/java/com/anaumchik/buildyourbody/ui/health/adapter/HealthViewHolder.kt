@@ -12,9 +12,14 @@ import com.anaumchik.buildyourbody.data.utils.SessionManager
 import com.anaumchik.buildyourbody.data.utils.background
 import com.anaumchik.buildyourbody.data.utils.loadDrawable
 import com.anaumchik.buildyourbody.data.utils.toast
-import kotlinx.android.synthetic.main.item_health.view.*
-import org.koin.standalone.KoinComponent
-import org.koin.standalone.inject
+import kotlinx.android.synthetic.main.item_health.view.imgIcon
+import kotlinx.android.synthetic.main.item_health.view.tvAdjustHealth
+import kotlinx.android.synthetic.main.item_health.view.tvCostMoney
+import kotlinx.android.synthetic.main.item_health.view.tvDescription
+import kotlinx.android.synthetic.main.item_health.view.tvMinLvl
+import kotlinx.android.synthetic.main.item_health.view.tvTitle
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 class HealthViewHolder(private val view: View) : RecyclerView.ViewHolder(view), KoinComponent {
     private val playerSession = inject<SessionManager>().value

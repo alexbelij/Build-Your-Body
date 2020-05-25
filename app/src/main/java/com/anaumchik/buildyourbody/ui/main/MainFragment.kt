@@ -26,6 +26,6 @@ class MainFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.enableStartBtn.observe(this, Observer { btnStart.isEnabled = true })
+        viewModel.enableStartBtn.observe(viewLifecycleOwner, Observer { btnStart.isEnabled = true })
     }
 }

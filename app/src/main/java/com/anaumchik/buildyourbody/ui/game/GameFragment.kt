@@ -9,9 +9,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.anaumchik.buildyourbody.R
 import com.anaumchik.buildyourbody.data.entity.Player
-import com.anaumchik.buildyourbody.data.utils.*
+import com.anaumchik.buildyourbody.data.utils.bottomNavMenuRouteTo
+import com.anaumchik.buildyourbody.data.utils.deselectItems
+import com.anaumchik.buildyourbody.data.utils.enableToolbarBackButton
+import com.anaumchik.buildyourbody.data.utils.string
+import com.anaumchik.buildyourbody.data.utils.toolbarTitle
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.fragment_game.*
+import kotlinx.android.synthetic.main.fragment_game.bottom_nav_view
+import kotlinx.android.synthetic.main.fragment_game.pbExperience
+import kotlinx.android.synthetic.main.fragment_game.pbHealth
+import kotlinx.android.synthetic.main.fragment_game.pbTime
+import kotlinx.android.synthetic.main.fragment_game.tvDaysInGame
+import kotlinx.android.synthetic.main.fragment_game.tvMoney
+import kotlinx.android.synthetic.main.fragment_game.tvPlayerLvl
+import kotlinx.android.synthetic.main.fragment_game.tvPlayerName
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class GameFragment : Fragment() {
@@ -41,7 +52,7 @@ class GameFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun observeViewModel() {
-        viewModel.updateGameProgress.observe(this, Observer { updateGameProgress(it) })
+        viewModel.updateGameProgress.observe(viewLifecycleOwner, Observer { updateGameProgress(it) })
     }
 
     private fun updateGameProgress(player: Player) {

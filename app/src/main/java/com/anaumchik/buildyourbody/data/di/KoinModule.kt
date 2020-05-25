@@ -11,8 +11,8 @@ import com.anaumchik.buildyourbody.ui.shop.ShopFragmentViewModel
 import com.anaumchik.buildyourbody.ui.work.WorkFragmentViewModel
 import com.anaumchik.buildyourbody.ui.work.WorkRepository
 import org.koin.android.ext.koin.androidApplication
-import org.koin.android.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
+import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
 val koinModule = module {
     single { PlayerSharedPrefs(androidApplication()) }

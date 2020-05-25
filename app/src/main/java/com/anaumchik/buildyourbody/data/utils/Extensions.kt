@@ -8,7 +8,11 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.*
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.IdRes
+import androidx.annotation.LayoutRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -17,7 +21,7 @@ import androidx.navigation.findNavController
 import com.anaumchik.buildyourbody.R
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.toolbar
 
 fun Fragment.string(@StringRes stringRes: Int): String = this.getString(stringRes)
 fun <T> Fragment.string(@StringRes stringRes: Int, value: T): String = this.getString(stringRes, value)
@@ -81,9 +85,9 @@ fun Fragment.alertDialog(
     val view = inflate(layoutRes)
     setView(view)
     view.findViewById<TextView>(titleIdRes)?.text =
-        title?.let { it } ?: run { string(titleStringRes) }
+        title ?: run { string(titleStringRes) }
     view.findViewById<TextView>(descriptionIdRes)?.text =
-        description?.let { it } ?: run { string(descriptionStringRes) }
+        description ?: run { string(descriptionStringRes) }
     view.findViewById<Button>(btnIdRes)?.setOnClickListener {
         dismiss()
         btnAction.invoke()

@@ -14,7 +14,7 @@ class HealthRepository(private val application: Application) {
         val minLvls = application.resources.getIntArray(R.array.health_min_lvl)
         val experiences = application.resources.getIntArray(R.array.health_experience)
 
-        for (i in 0 until titles.size) {
+        titles.forEachIndexed { i, _ ->
             items.add(
                 Health(
                     i,
