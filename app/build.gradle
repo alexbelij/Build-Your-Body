@@ -28,7 +28,7 @@ version.appCompat = "1.1.0"
 version.constraintLayout = "1.1.3"
 version.lifecycleVersion = "2.2.0"
 version.room = "2.2.0"
-version.coroutines = "1.3.0"
+version.coroutines = "1.3.7"
 version.koin = "2.1.5"
 version.glide = "4.11.0"
 
